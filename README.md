@@ -1,6 +1,21 @@
 # TopologicalDensityEstimation
 
-For details, see https://arxiv.org/abs/1701.09025. Most of the code is to support the evaluation and plots therein. Persons uninterested in reproducing those results can safely focus on tde1d.m and unidec.m. These respectively perform topological density estimation and produce a unimodal decomposition of a function using the algorithm of Baryshnikov and Ghrist; the former calls the latter.
+MATLAB code for topological density estimation. For details, see https://arxiv.org/abs/1701.09025. 
+
+Most of the code here is to support the evaluation and plots in the paper above. Persons uninterested in reproducing those results can safely focus on tde1d.m and unidec.m. These respectively perform topological density estimation and produce a unimodal decomposition of a function using the algorithm of Baryshnikov and Ghrist; the former calls the latter.
+
+The performance data and plot scripts (named "TDE...Script...") call the various functions below and require the statistics toolbox. However, the essential functions tde1d.m and unidec.m (and most of the other functions below) do not require the statistics toolbox.
+
+    cv1d.m is a cross-validation bandwidth selector and calls cvrisk.m
+    cvrisk.m is a cross-validation estimate of risk and is called by cv1d.m
+    ise.m computes the integrated square error and is called by vbise.m
+    layertrans2.m is a transparency plot of two matrices
+    lowriskhist.m is a cross-validation histogram function
+    optimalkernelbandwidth.m computes the optimal bandwidth for a kernel density estimate
+    tde1d.m computes a topological density estimate and calls unidec.m
+    tdepdfsuite.m generates samples and PDFs for the scripts
+    unidec.m computes a unimodal decomposition and is called by tde1d.m
+    vbise.m computes a variable-bandwidth integrated square error and calls ise.m 
 
 Example command sequence:
 
